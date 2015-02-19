@@ -1,14 +1,20 @@
 package com.javadude.naive;
 
 import java.awt.Button;
-import java.awt.List;
-import java.awt.TextField;
 
 public class AddButton extends Button {
 	private static final long serialVersionUID = 1L;
+	public interface AddButtonListener {
+		void addPressed();
+	}
+	private AddButtonListener addButtonListener;
 
-	public AddButton(List list, TextField textField) {
+	public void setAddButtonListener(AddButtonListener addButtonListener) {
+		this.addButtonListener = addButtonListener;
+	}
+
+	public AddButton() {
 		super("Add");
-		addActionListener(e -> list.add(textField.getText()));
+		addActionListener(e -> addButtonListener.addPressed());
 	}
 }

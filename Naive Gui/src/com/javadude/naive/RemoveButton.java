@@ -1,13 +1,20 @@
 package com.javadude.naive;
 
 import java.awt.Button;
-import java.awt.List;
 
 public class RemoveButton extends Button {
 	private static final long serialVersionUID = 1L;
+	public interface RemoveButtonListener {
+		void removePressed();
+	}
+	private RemoveButtonListener removeButtonListener;
 
-	public RemoveButton(List list) {
+	public void setRemoveButtonListener(RemoveButtonListener removeButtonListener) {
+		this.removeButtonListener = removeButtonListener;
+	}
+
+	public RemoveButton() {
 		super("Remove");
-		addActionListener(e -> list.remove(list.getSelectedIndex()));
+		addActionListener(e -> removeButtonListener.removePressed());
 	}
 }
