@@ -1,7 +1,6 @@
 package com.javadude.naive;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridLayout;
@@ -29,12 +28,8 @@ public class TodoGUI {
 				add(BorderLayout.NORTH, itemField=new TextField());
 				add(BorderLayout.SOUTH, new Panel(new FlowLayout(FlowLayout.RIGHT)) {{
 					add(new Panel(new GridLayout(1,0,3,3)) {{
-						add(new Button("Add") {{
-							addActionListener(e -> list.add(itemField.getText()));
-						}});
-						add(new Button("Remove") {{
-							addActionListener(e -> list.remove(list.getSelectedIndex()));
-						}});
+						add(new AddButton(list, itemField));
+						add(new RemoveButton(list));
 					}});
 				}});
 			}});
