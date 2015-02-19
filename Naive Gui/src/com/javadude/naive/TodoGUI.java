@@ -1,6 +1,7 @@
 package com.javadude.naive;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridLayout;
@@ -18,11 +19,10 @@ public class TodoGUI {
 
 	private List list = new List();
 	private TextField itemField = new TextField();
-	private AddButton addButton = new AddButton();
-	private RemoveButton removeButton = new RemoveButton();
+	private Button addButton = new Button("Add");
+	private Button removeButton = new Button("Remove");
 	@SuppressWarnings("unused")
-	private Mediator1 mediator1 = new Mediator1(addButton, removeButton, list, itemField);
-	//	private Mediator2 mediator2 = new Mediator2(addButton, removeButton, list, itemField);
+	private Mediator mediator1 = new Mediator(addButton, removeButton, list, itemField);
 
 	@SuppressWarnings("serial")
 	private void go() {
